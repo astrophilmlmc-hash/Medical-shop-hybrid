@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -34,6 +35,8 @@ jobs:
         run: npm ci
 
       - name: Build production bundle
+        env:
+          VITE_BASE_PATH: /Medical-shop-hybrid/
         run: npm run build
 
       - name: Copy index.html to 404.html for SPA routing

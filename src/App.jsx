@@ -26,9 +26,10 @@ const ScrollToTop = () => {
 };
 
 const App = () => {
+  const baseName = (import.meta.env.BASE_URL || '/').replace(/\/$/, '') || '/';
   return (
     <AppProvider>
-      <Router>
+      <Router basename={baseName}>
         <ScrollToTop />
         <div className="min-h-screen flex flex-col bg-slate-50 text-gray-800">
           <Navbar />
